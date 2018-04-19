@@ -1,10 +1,12 @@
-<h2 align="center">Actualité <?=$_POST['plateform']?></h2>
+<h2 align="center">Actualité <?=$_SESSION['plateform']?></h2>
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
 				<?php
-        $plateform = $_POST['plateform'];
-				$requser = InfoGameplat($plateform);
+				if(isset($_POST['plateform'])){
+					$_SESSION['plateform'] = $_POST['plateform'];
+				}
+				$requser = InfoGameplat($_SESSION['plateform']);
 				while($donnees=$requser->fetch()){
 				?>
 								<div class="col-md-4">

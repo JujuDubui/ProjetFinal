@@ -121,8 +121,8 @@ function setGameData($id, $prix, $date) {
 }
 
 function creationPanier(){
-	if (!isset($_SESSION['panier'])){
-      $_SESSION['panier']=array();
+	if(!isset($_SESSION['panier'])){
+      $_SESSION['panier'] = array();
       $_SESSION['panier']['nom_jeu'] = array();
       $_SESSION['panier']['qte_jeu'] = array();
       $_SESSION['panier']['prix_jeu'] = array();
@@ -133,12 +133,11 @@ function creationPanier(){
 
 function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte){
    //Si le panier existe
-   if (creationPanier() && !isVerrouille())
+   if(creationPanier() && !isVerrouille())
    {
       //Si le produit existe déjà on ajoute seulement la quantité
-      $position_jeu = array_search($nom_jeu,  $_SESSION['panier']['nom_jeu']);
-
-      if ($position_jeu !== false)
+      $position_jeu = array_search($nom_jeu, $_SESSION['panier']['nom_jeu']);
+      if($position_jeu !== false)
       {
          $_SESSION['panier']['qte_jeu'][$position_jeu] += $qte ;
       }
@@ -150,8 +149,7 @@ function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte){
 			 	array_push($_SESSION['panier']['qte_jeu'],$qte);
       }
    }
-   else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
+   else echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
 function modif_qte($nom_jeu, $qte){
@@ -162,26 +160,22 @@ function modif_qte($nom_jeu, $qte){
       if ($qte > 0)
       {
          //Recharche du produit dans le panier
-         $position_jeu = array_search($nom_jeu,  $_SESSION['panier']['nom_jeu']);
-
-         if ($position_jeu !== false) {
+         $position_jeu = array_search($nom_jeu, $_SESSION['panier']['nom_jeu']);
+         if($position_jeu !== false) {
 						 $_SESSION['panier']['qte_jeu'][$position_jeu] = $qte ;
          }
       }
-      else
-      supprimejeu($nom_jeu);
+      else supprimejeu($nom_jeu);
    }
-   else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
+   else echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
 function countjeu()
 {
-   if (isset($_SESSION['panier']))
+   if(isset($_SESSION['panier']))
    return count($_SESSION['panier']['nom_jeu']);
    else
    return 0;
-
 }
 
 function isVerrouille(){

@@ -4,19 +4,15 @@ $action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? 
 if($action !== null){
    if(!in_array($action,array('ajout', 'suppression', 'suppression_panier', 'refresh')))
    $erreur=true;
-
    //récuperation des variables en POST ou GET
 	 	$n = (isset($_POST['n'])? $_POST['n']:  (isset($_GET['n'])? $_GET['n']:null )) ;
     $p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
     $q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
-
    //Suppression des espaces verticaux
    $n = preg_replace('#\v#', '',$n);
    //On verifie que $p soit un float
    $p = floatval($p);
-
    //On traite $q qui peut etre un entier simple ou un tableau d'entier
-
    if (is_array($q)){
       $qte = array();
       $i=0;
@@ -28,7 +24,7 @@ if($action !== null){
    $q = intval($q);
 
 }
-if (!$erreur){
+if(!$erreur){
    switch($action){
       Case "ajout":
          ajout_panier($n,$q,$p);
@@ -43,10 +39,8 @@ if (!$erreur){
           break;
 
       Case "refresh" :
-         for ($i = 0 ; $i < count($qte) ; $i++)
-         {
+         for ($i = 0 ; $i < count($qte) ; $i++){
              modif_qte($_SESSION['panier']['nom_jeu'][$i],round($qte[$i]));
-
          }
          break;
 

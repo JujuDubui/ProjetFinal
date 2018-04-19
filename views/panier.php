@@ -5,7 +5,7 @@
 </head>
 <body>
 <form method="post" action="panier">
-<table style="width: 400px">
+<table style="width:800px">
 	<tr>
 		<td colspan="4">Votre panier</td>
 	</tr>
