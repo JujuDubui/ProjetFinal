@@ -10,7 +10,7 @@
 								<div class="col-md-4">
 									<div class="card mb-4 box-shadow">
 										<?php $repertoire = 'images/img_jeu/'; ?>
-										<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
+										<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt=<?=$donnees['nom']?> src=<?=$repertoire.$donnees['jacket']?>>
 										<div class="card-body">
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="btn-group">
@@ -21,16 +21,16 @@
 														<?php if(!empty($_SESSION['login_admin'])){?>
 																	<form action="editGame" method="get">
 																		<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
-																		<input value="Edit" type="submit">
+																		<input value="Edit" class="btn btn-sm btn-outline-secondary" type="submit">
 																	</form>
 										            	<form action="delgame" method="get">
 																		<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
-										                <input value="X" type="submit">
+										                <input value="X" class="btn btn-sm btn-outline-secondary" type="submit">
 										             	</form>
 										        <?php } else{?>
 										            <form action="ajout_panier" method="post">
 																		<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
-																		<input value="+" type="submit">
+																		<input value="+" class="btn btn-sm btn-outline-secondary" type="submit">
 										             </form>
 										        <?php  } ?>
 												</div>

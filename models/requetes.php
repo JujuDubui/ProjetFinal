@@ -126,18 +126,20 @@ function creationPanier(){
       $_SESSION['panier']['nom_jeu'] = array();
       $_SESSION['panier']['qte_jeu'] = array();
       $_SESSION['panier']['prix_jeu'] = array();
+			$_SESSION['panier']['plateform_jeu'] = array();
 			$_SESSION['panier']['verrou'] = false;
    }
    return true;
 }
 
-function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte){
+function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte, $plateform){
    //Si le panier existe
    if(creationPanier() && !isVerrouille())
    {
       //Si le produit existe déjà on ajoute seulement la quantité
       $position_jeu = array_search($nom_jeu, $_SESSION['panier']['nom_jeu']);
-      if($position_jeu !== false)
+			$position_plateform = array_search($plateform, $_SESSION['panier']['plateform_jeu']);
+      if($position_jeu !== false && $position_plateform !== false)
       {
          $_SESSION['panier']['qte_jeu'][$position_jeu] += $qte ;
       }
@@ -147,6 +149,7 @@ function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte){
 			 	array_push($_SESSION['panier']['nom_jeu'],$nom_jeu);
 			 	array_push($_SESSION['panier']['prix_jeu'],$prix_jeu);
 			 	array_push($_SESSION['panier']['qte_jeu'],$qte);
+				array_push($_SESSION['panier']['plateform_jeu'],$plateform);
       }
    }
    else echo "Un problème est survenu veuillez contacter l'administrateur du site.";
@@ -203,6 +206,7 @@ function supprimejeu($nom_jeu){
       $tmp['nom_jeu'] = array();
       $tmp['qte_jeu'] = array();
       $tmp['prix_jeu'] = array();
+			$tmp['plateform_jeu'] = array();
       $tmp['verrou'] = $_SESSION['panier']['verrou'];
 
       for($i = 0; $i < count($_SESSION['panier']['nom_jeu']); $i++)
@@ -212,6 +216,7 @@ function supprimejeu($nom_jeu){
             array_push($tmp['nom_jeu'],$_SESSION['panier']['nom_jeu'][$i]);
             array_push($tmp['qte_jeu'],$_SESSION['panier']['qte_jeu'][$i]);
             array_push($tmp['prix_jeu'],$_SESSION['panier']['prix_jeu'][$i]);
+						array_push($tmp['plateform_jeu'],$_SESSION['panier']['plateform_jeu'][$i]);
          }
       }
       //On remplace le panier en session par notre panier temporaire à jour

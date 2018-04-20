@@ -10,8 +10,9 @@ if($_POST){
       $id_jeu = $infogame['id_jeu'];
       $nom_jeu = $infogame['nom'];
       $prix_jeu = $infogame['prix'];
+      $plateform = $infogame['plateform'];
       $qte = 1;
-      ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte);
+      ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte, $plateform);
       header('Location: boutique');
    }
 }

@@ -13,6 +13,7 @@
 		<td>Libellé</td>
 		<td>Quantité</td>
 		<td>Prix Unitaire</td>
+		<td>Plateforme</td>
 		<td>Action</td>
 	</tr>
 <?php
@@ -29,6 +30,7 @@
 				 echo "<td>".htmlspecialchars($_SESSION['panier']['nom_jeu'][$i])."</ td>";
 				 echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qte_jeu'][$i])."\"/></td>";
 				 echo "<td>".htmlspecialchars($_SESSION['panier']['prix_jeu'][$i])."</td>";
+				 echo "<td>".htmlspecialchars($_SESSION['panier']['plateform_jeu'][$i])."</td>";
 				 echo "<td><a href=\"".htmlspecialchars("panier?action=suppression&n=".rawurlencode($_SESSION['panier']['nom_jeu'][$i]))."\"><input type=\"button\" value=\"X\"></a></td>";
 				 echo "</tr>";
 			}
