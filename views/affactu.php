@@ -33,7 +33,7 @@ if(isset($_POST['plateform'])){
 												<div class="btn-group">
 													<button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['plateform']?>
 													<button type="button" class="btn btn-sm btn-outline-secondary">Pegi <?=$donnees['pegi']?></button>
-													<form action="#" method="get">
+													<form action="fiche" method="post">
 															<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
 															<input value="Détails" type="submit">
 													</form>

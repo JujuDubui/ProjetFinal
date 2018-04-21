@@ -96,6 +96,12 @@ function InfoGameid($id){
   return $info=$requser->fetch();
 }
 
+function InfoGameidnotfectch($id){
+  $bdd = db_connect();
+  $requser = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
+  return $requser;
+}
+
 function InfoGameplat($plateform){
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM jeu WHERE plateform IN (\"$plateform\")");
