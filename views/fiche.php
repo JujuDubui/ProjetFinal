@@ -7,7 +7,7 @@ if(isset($_POST['id'])){
 <html>
 		<head>
 		<meta charset = "utf-8"/>
-		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -20,20 +20,28 @@ if(isset($_POST['id'])){
       $requser = InfoGameidnotfectch($_SESSION['id_jeu']);
       while($donnees=$requser->fetch()){
       ?>
-			<h2 align="center">Fiche de <?=$donnees['nom']?></h2>
+			<div class="container">
+										<div align="center">
+										<h2>Fiche de <?=$donnees['nom']?></h2>
+										<br>
 										<?php $repertoire = 'images/img_jeu/'; ?>
 										<img alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
                     <br>
-                    <label>nom du jeu : <?=$donnees['nom']?></label>
+                    <label>Nom du jeu : <?=$donnees['nom']?></label>
+                    <br>
+										<label>Date de sortie : <?=$donnees['date_parution']?></label>
                     <br>
                     <label>Pegi : <?=$donnees['pegi']?></label>
                     <br>
                     <label>Plateforme : <?=$donnees['plateform']?></label>
                     <br>
-                    <label>Prix : <?=$donnees['prix']?></label>
-                    <br><br>
+                    <label>Prix : <?=$donnees['prix']?> €</label>
+                    <br>
 	                  <a href="#"><input type="button" value="Acceder a la boutique"></a>
-						<?php }?>
+										<br>
+										</div>
+				</div>
+	<?php }?>
 	<?php include 'includes/footer.php' ?>
 </body>
 </html>
