@@ -19,7 +19,7 @@
 <?php
 	if (creationPanier())
 	{
-		$nb_jeu=count($_SESSION['panier']['nom_jeu']);
+		$nb_jeu=count($_SESSION['panier']['id_jeu']);
 		if ($nb_jeu <= 0)
 		echo "<tr><td>Votre panier est vide <br/><br/><a href=\"boutique\"><input type=\"button\" value=\"Retour\"></a></td></tr>";
 		else
@@ -31,7 +31,7 @@
 				 echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qte_jeu'][$i])."\"/></td>";
 				 echo "<td>".htmlspecialchars($_SESSION['panier']['prix_jeu'][$i])."</td>";
 				 echo "<td>".htmlspecialchars($_SESSION['panier']['plateform_jeu'][$i])."</td>";
-				 echo "<td><a href=\"".htmlspecialchars("panier?action=suppression&n=".rawurlencode($_SESSION['panier']['nom_jeu'][$i]))."\"><input type=\"button\" value=\"X\"></a></td>";
+				 echo "<td><a href=\"".htmlspecialchars("panier?action=suppression&n=".rawurlencode($_SESSION['panier']['id_jeu'][$i]))."\"><input type=\"button\" value=\"X\"></a></td>";
 				 echo "</tr>";
 			}
 			echo "<tr><td colspan=\"2\"></td>";

@@ -40,7 +40,7 @@ if(!$erreur){
 
       Case "refresh" :
          for ($i = 0 ; $i < count($qte) ; $i++){
-             modif_qte($_SESSION['panier']['nom_jeu'][$i],round($qte[$i]));
+             modif_qte($_SESSION['panier']['id_jeu'][$i],round($qte[$i]));
          }
          break;
 

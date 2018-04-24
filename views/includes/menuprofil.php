@@ -8,7 +8,11 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="../images/img_jeu/panierblanc30x20.png" alt="panier"><a href="panier">Panier</a></button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <img src="../images/img_jeu/panierblanc30x20.png" alt="panier">
+        <a href="panier">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nb_jeu']?>)</a>
+      <?php } else{?>(0)<?php } ?>
+      </button>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="#">Editer mon profil</a></button>
     	<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="../logOut">Deconnexion</a></button>
     </form>

@@ -129,6 +129,7 @@ function setGameData($id, $prix, $date) {
 function creationPanier(){
 	if(!isset($_SESSION['panier'])){
       $_SESSION['panier'] = array();
+			$_SESSION['panier']['id_jeu'] = array();
       $_SESSION['panier']['nom_jeu'] = array();
       $_SESSION['panier']['qte_jeu'] = array();
       $_SESSION['panier']['prix_jeu'] = array();
@@ -143,15 +144,15 @@ function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte, $plateform){
    if(creationPanier() && !isVerrouille())
    {
       //Si le produit existe déjà on ajoute seulement la quantité
-      $position_jeu = array_search($nom_jeu, $_SESSION['panier']['nom_jeu']);
-			$position_plateform = array_search($plateform, $_SESSION['panier']['plateform_jeu']);
-      if($position_jeu !== false && $position_plateform !== false)
+      $position_jeu = array_search($id_jeu, $_SESSION['panier']['id_jeu']);
+      if($position_jeu !== false)
       {
          $_SESSION['panier']['qte_jeu'][$position_jeu] += $qte ;
       }
       else
       {
          //Sinon on ajoute le produit
+				array_push($_SESSION['panier']['id_jeu'],$id_jeu);
 			 	array_push($_SESSION['panier']['nom_jeu'],$nom_jeu);
 			 	array_push($_SESSION['panier']['prix_jeu'],$prix_jeu);
 			 	array_push($_SESSION['panier']['qte_jeu'],$qte);
@@ -161,7 +162,7 @@ function ajout_panier($id_jeu, $nom_jeu, $prix_jeu, $qte, $plateform){
    else echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
-function modif_qte($nom_jeu, $qte){
+function modif_qte($id_jeu, $qte){
    //Si le panier éxiste
    if (creationPanier() && !isVerrouille())
    {
@@ -169,12 +170,12 @@ function modif_qte($nom_jeu, $qte){
       if ($qte > 0)
       {
          //Recharche du produit dans le panier
-         $position_jeu = array_search($nom_jeu, $_SESSION['panier']['nom_jeu']);
+         $position_jeu = array_search($id_jeu, $_SESSION['panier']['id_jeu']);
          if($position_jeu !== false) {
 						 $_SESSION['panier']['qte_jeu'][$position_jeu] = $qte ;
          }
       }
-      else supprimejeu($nom_jeu);
+      else supprimejeu($id_jeu);
    }
    else echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
@@ -182,7 +183,7 @@ function modif_qte($nom_jeu, $qte){
 function countjeu()
 {
    if(isset($_SESSION['panier']))
-   return count($_SESSION['panier']['nom_jeu']);
+   return count($_SESSION['panier']['id_jeu']);
    else
    return 0;
 }
@@ -203,22 +204,24 @@ function MontantGlobal(){
    return $total;
 }
 
-function supprimejeu($nom_jeu){
+function supprimejeu($id_jeu){
    //Si le panier existe
    if (creationPanier() && !isVerrouille())
    {
       //Nous allons passer par un panier temporaire
       $tmp=array();
+			$tmp['id_jeu'] = array();
       $tmp['nom_jeu'] = array();
       $tmp['qte_jeu'] = array();
       $tmp['prix_jeu'] = array();
 			$tmp['plateform_jeu'] = array();
       $tmp['verrou'] = $_SESSION['panier']['verrou'];
 
-      for($i = 0; $i < count($_SESSION['panier']['nom_jeu']); $i++)
+      for($i = 0; $i < countjeu($_SESSION['panier']['id_jeu']); $i++)
       {
-         if ($_SESSION['panier']['nom_jeu'][$i] !== $nom_jeu)
+         if ($_SESSION['panier']['id_jeu'][$i] !== $id_jeu)
          {
+					 	array_push($tmp['id_jeu'],$_SESSION['panier']['id_jeu'][$i]);
             array_push($tmp['nom_jeu'],$_SESSION['panier']['nom_jeu'][$i]);
             array_push($tmp['qte_jeu'],$_SESSION['panier']['qte_jeu'][$i]);
             array_push($tmp['prix_jeu'],$_SESSION['panier']['prix_jeu'][$i]);
@@ -229,12 +232,14 @@ function supprimejeu($nom_jeu){
       $_SESSION['panier'] =  $tmp;
       //On efface notre panier temporaire
       unset($tmp);
+			$_SESSION['nb_jeu'] = countjeu($id_jeu);
    }
    else
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
 function supprimePanier(){
-   unset($_SESSION['panier']);
+  unset($_SESSION['panier']);
+	$_SESSION['nb_jeu'] = 0;
 }
 ?>

@@ -1,3 +1,7 @@
+<?php
+if(!isset($_SESSION['nb_jeu'])) $_SESSION['nb_jeu']=0;
+if(!empty($_SESSION['panier'])) $_SESSION['nb_jeu']=countjeu();
+?>
 <!DOCTYPE html>
 <html>
   <head>

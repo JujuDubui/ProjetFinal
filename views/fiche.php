@@ -1,4 +1,6 @@
 <?php
+if(!isset($_SESSION['nb_jeu'])) $_SESSION['nb_jeu']=0;
+if(!empty($_SESSION['panier'])) $_SESSION['nb_jeu']=countjeu();
 if(isset($_POST['id'])){
 	$_SESSION['id_jeu'] = $_POST['id'];
 }

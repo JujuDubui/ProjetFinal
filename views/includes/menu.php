@@ -64,7 +64,11 @@
         </li>
       <?php }} ?>
       <?php if(isset($_SESSION['login'])){ ?>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="../images/img_jeu/panierblanc30x20.png" alt="panier"><a href="panier">Panier</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <img src="../images/img_jeu/panierblanc30x20.png" alt="panier">
+          <a href="panier">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nb_jeu']?>)</a>
+        <?php } else{?>(0)<?php } ?>
+        </button>
       <?php } ?>
       <?php if(!isset($_SESSION['login_admin'])){?>
       <li class="nav-item dropdown">
