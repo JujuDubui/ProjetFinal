@@ -11,9 +11,28 @@ function getAdmin($login) {
 	return $info=$req->fetch();
 }
 
+function searchjeu($search) {
+	$bdd = db_connect();
+	$req = $bdd->prepare("SELECT * FROM jeu WHERE nom LIKE concat('%',?,'%')");
+	$req->execute(array($search));
+  return $req;
+}
+
 function setData($id, $login, $mdp) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE clients SET login="'.$login.'", passw="'.$mdp.'" WHERE id_client='.$id);
+    $req->execute();
+}
+
+function Statut($etat,$id) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('UPDATE clients SET Statut="'.$etat.'" WHERE id_client='.$id);
+    $req->execute();
+}
+
+function StatutAdmin($etat,$id) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('UPDATE admin SET Statut="'.$etat.'" WHERE id_admin='.$id);
     $req->execute();
 }
 
@@ -48,6 +67,12 @@ function addGame($nom , $editeur, $plateforme, $prix, $pegi, $genre, $date, $qua
 function allUserInfo(){
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM clients");
+	return $req;
+}
+
+function allAdminInfo(){
+	$bdd = db_connect();
+	$req = $bdd->query("SELECT * FROM admin");
 	return $req;
 }
 
@@ -96,6 +121,13 @@ function InfoGameid($id){
   return $info=$requser->fetch();
 }
 
+function statutid($id){
+  $bdd = db_connect();
+  $requser = $bdd->query("SELECT * FROM admin WHERE id_admin = ?");
+	$reponse->execute(array($id));
+  return $info=$requser->fetch();
+}
+
 function InfoGameidnotfectch($id){
   $bdd = db_connect();
   $requser = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
@@ -123,6 +155,18 @@ function delGame($id){
 function setGameData($id, $prix, $date) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE jeu SET prix="'.$prix.'", date_parution="'.$date.'" WHERE id_jeu='.$id);
+    $req->execute();
+}
+
+function setEmail($id, $email) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('UPDATE clients SET mail="'.$email.'" WHERE id_client='.$id);
+    $req->execute();
+}
+
+function setAdress($id, $adresse) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('UPDATE clients SET adress="'.$adresse.'" WHERE id_client='.$id);
     $req->execute();
 }
 

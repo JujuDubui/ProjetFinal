@@ -64,7 +64,7 @@
         </li>
       <?php }} ?>
       <?php if(isset($_SESSION['login'])){ ?>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button">
           <img src="../images/img_jeu/panierblanc30x20.png" alt="panier">
           <a href="panier">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nb_jeu']?>)</a>
         <?php } else{?>(0)<?php } ?>
@@ -85,9 +85,9 @@
       </li>
     <?php } else{} ?>
     </ul>
-    <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Recherche" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+    <form method="POST" action="Search" class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" name="search" placeholder="Recherche" aria-label="Search">
+              <input class="btn btn-outline-success my-2 my-sm-0" value="Rechercher" type="submit">
     </form>
   </div>
 </nav>

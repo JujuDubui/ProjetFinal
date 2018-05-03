@@ -1,1 +1,1 @@
-window.setTimeout("window.location.reload();",5000);
+window.setTimeout("window.location.reload();",15000);

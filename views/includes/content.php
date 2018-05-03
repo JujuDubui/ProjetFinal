@@ -5,25 +5,45 @@
           <div class="carousel-item active">
             <img class="first-slide" src="../../images/img_jeu/3365413-9174638891-31532.jpg" alt="1">
             <div class="container">
-              <div class="carousel-caption text-left"><a href="Actups4">Voir les jeux PS4</a></div>
+              <div class="carousel-caption text-left">
+                <form action="actujeux" method="post">
+                  <input type="hidden" name="plateform" value="PS4">
+                  <input class="btn btn-sm btn-outline-secondary" type="submit" value="jeux PS4">
+                </form>
+              </div>
             </div>
           </div>
           <div class="carousel-item">
             <img class="second-slide" src="../../images/img_jeu/XboxOneS_CnsleCntrllr_Hrz_FrntTlt_TransBG_RGB.0.jpg" alt="2">
             <div class="container">
-              <div class="carousel-caption"><a href="Actuxbox">Voir les jeux XBOX</a></div>
+              <div class="carousel-caption">
+                <form action="actujeux" method="post">
+                  <input type="hidden" name="plateform" value="XBOX">
+                  <input class="btn btn-sm btn-outline-secondary" type="submit" value="jeux XBOX">
+                </form>
+              </div>
             </div>
           </div>
           <div class="carousel-item">
             <img class="third-slide" src="../../images/img_jeu/laptop-157424_960_720.png" alt="3">
             <div class="container">
-              <div class="carousel-caption text-right"><a href="Actupc">Voir les jeux PC</a></div>
+              <div class="carousel-caption text-right">
+                <form action="actujeux" method="post">
+                  <input type="hidden" name="plateform" value="PC">
+                  <input class="btn btn-sm btn-outline-secondary" type="submit" value="jeux PC">
+                </form>
+              </div>
             </div>
           </div>
           <div class="carousel-item">
             <img class="third-slide" src="../../images/img_jeu/Nintendo_Switch_Portable.png" alt="4">
             <div class="container">
-              <div class="carousel-caption text-right"><a href="#">Voir les jeux NINTENDO SWITCH</a></div>
+              <div class="carousel-caption text-right">
+                <form action="actujeux" method="post">
+                  <input type="hidden" name="plateform" value="SWITCH">
+                  <input class="btn btn-sm btn-outline-secondary" type="submit" value="jeux SWITCH">
+                </form>
+              </div>
             </div>
           </div>
         </div>

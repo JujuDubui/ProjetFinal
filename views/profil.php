@@ -19,9 +19,9 @@ if(!empty($_SESSION['panier'])) $_SESSION['nb_jeu']=countjeu();
 			<br>
 			<label>Login : <?=$userinfo['login'] ?></label>
       <br>
-      <label>Email : <?=$userinfo['mail'] ?></label>
+      <label>Email : <?=$userinfo['mail'] ?></label>&nbsp;<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifmail">Edit</a></Button>
       <br>
-      <label>Adresse : <?=$userinfo['adress'] ?></label>
+      <label>Adresse : <?=$userinfo['adress'] ?></label>&nbsp;<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifadress">Edit</a></Button>
       <br>
 			<label>Age :
 			<?php

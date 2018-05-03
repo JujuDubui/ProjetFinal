@@ -27,6 +27,13 @@
              <input type="submit" name="envoyer"/>
              <a href="retourConv"><input type="button" name="retour" value="Retour"></a>
            <form>
+						 <?php if($info['Statut']==1){ ?>
+						 <br><br>
+						 <p><?=$_SESSION['login']?> en Ligne</p>
+						 <?php } else{?>
+						 <br><br>
+						 <p><?=$_SESSION['login']?> Hors Ligne</p>
+					 <?php } ?>
         </div>
       </div>
 		</body>

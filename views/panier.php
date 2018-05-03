@@ -21,7 +21,7 @@
 	{
 		$nb_jeu=count($_SESSION['panier']['id_jeu']);
 		if ($nb_jeu <= 0)
-		echo "<tr><td>Votre panier est vide <br/><br/><a href=\"boutique\"><input type=\"button\" value=\"Retour\"></a></td></tr>";
+		echo "<tr><td>Votre panier est vide <br/><br/><a href=\"javascript:history.go(-1)\"><input type=\"button\" value=\"Retour\"></a></td></tr>";
 		else
 		{
 			for ($i=0 ;$i < $nb_jeu ; $i++)
@@ -42,7 +42,7 @@
 			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
 			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
       echo "<a href=\"".htmlspecialchars("panier?action=suppression_panier")."\"><input type=\"button\" value=\"Vider le panier\"></a>";
-      echo "<a href=\"boutique\"><input type=\"button\" value=\"Retour\"></a>";
+      echo "<a href=\"javascript:history.go(-1)\"><input type=\"button\" value=\"Retour\"></a>";
 			echo "</td></tr>";
       echo "<tr><td colspan=\"4\">";
 		}

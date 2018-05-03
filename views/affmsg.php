@@ -4,6 +4,8 @@
 		$infuser = getUser($login);
 		$idclient= intval($infuser['id_client']);
 	  $requser = allChatMsg($idclient);
+		$req = allAdminInfo();
+		$info = $req->fetch();
      while($donnees=$requser->fetch()){
        ?>
   	 	<div class="container">
@@ -26,6 +28,7 @@
 			$infuser = getUser($login);
 			$idclient= intval($infuser['id_client']);
 		  $requser = allChatMsg($idclient);
+			$info = Infoid($idclient);
 			while($donnees=$requser->fetch()){
 				?>
 			 <div class="container">

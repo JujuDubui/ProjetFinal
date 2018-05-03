@@ -19,6 +19,7 @@
                     <input type="submit" name="formconnexion" value="Se connecter" />
                     <a href="accueil"><input type="button" name ="retour" value="Retour"></a>
                     </p>
+                    <p><a href="#">mot de passe oublié ?</a></p>
             </fieldset>
         </form>
         <?php

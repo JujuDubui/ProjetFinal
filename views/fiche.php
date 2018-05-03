@@ -1,9 +1,9 @@
 <?php
+if(isset($_SESSION['id_jeu']) OR isset($_POST['id'])){
 if(!isset($_SESSION['nb_jeu'])) $_SESSION['nb_jeu']=0;
 if(!empty($_SESSION['panier'])) $_SESSION['nb_jeu']=countjeu();
-if(isset($_POST['id'])){
-	$_SESSION['id_jeu'] = $_POST['id'];
-}
+if(isset($_POST['id'])) $_SESSION['id_jeu'] = $_POST['id'];
+if(isset($_SESSION['id_jeu'])) $_SESSION['id_jeu'] = $_SESSION['id_jeu'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,32 +18,7 @@ if(isset($_POST['id'])){
 		</head>
 		<body>
 			<?php include 'includes/menu.php'?>
-      <?php
-      $requser = InfoGameidnotfectch($_SESSION['id_jeu']);
-      while($donnees=$requser->fetch()){
-      ?>
-			<div class="container">
-										<div align="center">
-										<h2>Fiche de <?=$donnees['nom']?></h2>
-										<br>
-										<?php $repertoire = 'images/img_jeu/'; ?>
-										<img alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
-                    <br>
-                    <label>Nom du jeu : <?=$donnees['nom']?></label>
-                    <br>
-										<label>Date de sortie : <?=$donnees['date_parution']?></label>
-                    <br>
-                    <label>Pegi : <?=$donnees['pegi']?></label>
-                    <br>
-                    <label>Plateforme : <?=$donnees['plateform']?></label>
-                    <br>
-                    <label>Prix : <?=$donnees['prix']?> €</label>
-                    <br>
-	                  <a href="#"><input type="button" value="Acceder a la boutique"></a>
-										<br>
-										</div>
-				</div>
-	<?php }?>
-	<?php include 'includes/footer.php' ?>
-</body>
+			<?php include 'includes/footer.php' ?>
+		</body>
 </html>
+<?php } ?>

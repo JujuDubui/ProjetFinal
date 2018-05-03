@@ -22,6 +22,13 @@
              <input type="submit" name="envoyer" value="Envoyer"/>
              <a href="accueil"><input type="button" name ="retour" value="Retour"></a>
            <form>
+						 <?php if($info['Statut']==1){ ?>
+						 <br><br>
+						 <p>Administrateur en Ligne</p>
+					 <?php } else{?>
+						 <br><br>
+						 <p>Administrateur Hors Ligne, pour le contacter veuillez envoyer un mail</p>
+					 <?php } ?>
         </div>
       </div>
 		</body>
