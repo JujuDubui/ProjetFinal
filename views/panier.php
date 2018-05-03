@@ -45,6 +45,8 @@
       echo "<a href=\"javascript:history.go(-1)\"><input type=\"button\" value=\"Retour\"></a>";
 			echo "</td></tr>";
       echo "<tr><td colspan=\"4\">";
+			echo "<br>";
+	    echo "<a href=\"achat\"><input type=\"button\" value=\"Valider le panier\"></a>";
 		}
 	}
 	?>

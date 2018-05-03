@@ -19,7 +19,7 @@ while($donnees=$requser->fetch()){
               <br>
               <label>Prix : <?=$donnees['prix']?> €</label>
               <br>
-              <a href="#"><input type="button" value="Acceder a la boutique"></a>
+              <a href="#"><input type="button" value="Ajouter au panier"></a>
               <br>
               </div>
   </div>

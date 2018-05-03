@@ -11,10 +11,7 @@
     <title>Recherche</title>
   </head>
   <body>
-    <form method="POST" action="Search" class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Recherche" aria-label="Search">
-        <input class="btn btn-outline-success my-2 my-sm-0" value="Rechercher" type="submit">
-    </form>
+    <?php include("includes/menu.php") ?>
     <?php if(!empty($_POST['search'])){ ?>
     <div class="album py-5 bg-light">
     				<div class="container">
@@ -45,5 +42,6 @@
     		</div>
     	</div>
     <?php } ?>
+    <?php include("includes/footer.php") ?>
   </body>
 </html>
