@@ -64,6 +64,13 @@ function addGame($nom , $editeur, $plateforme, $prix, $pegi, $genre, $date, $qua
   return $req;
 }
 
+function addcommande($idclient, $idjeu, $total){
+  $bdd = db_connect();
+  $req = $bdd->prepare("INSERT INTO orders(id_client, id_jeu, prix, odate) VALUES(?, ?, ?, NOW())");
+  $req->execute(array($idclient, $idjeu, $total));
+  return $req;
+}
+
 function allUserInfo(){
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM clients");
@@ -285,5 +292,17 @@ function supprimejeu($id_jeu){
 function supprimePanier(){
   unset($_SESSION['panier']);
 	$_SESSION['nb_jeu'] = 0;
+}
+
+function conca_id($id){
+	for($i = 0 ;$i < countjeu(); $i++){
+		if($i==0){
+			$id_jeu = $id[$i];
+		}
+		else{
+			$id_jeu = $id_jeu."|".$id[$i];
+		}
+	}
+return $id_jeu;
 }
 ?>

@@ -28,10 +28,21 @@
     											<div class="d-flex justify-content-between align-items-center">
     												<div class="btn-group">
     													<button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['plateform']?></button>
-    													<form action="fiche" method="post">
-    															<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
-    															<input value="Détails" class="btn btn-sm btn-outline-secondary" type="submit">
-    													</form>
+                              <?php if(isset($_SESSION['id_admin'])){ ?>
+                                  <form action="editGame" method="get">
+                                    <input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
+                                    <input value="Edit" class="btn btn-sm btn-outline-secondary" type="submit">
+                                  </form>
+                                  <form action="delgame" method="get">
+                                    <input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
+                                    <input value="X" class="btn btn-sm btn-outline-secondary" type="submit">
+                                  </form>
+                                <?php } else{?>
+                                <form action="fiche" method="post">
+      															<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
+      															<input value="Détails" class="btn btn-sm btn-outline-secondary" type="submit">
+      													</form>
+                              <?php } ?>
     												</div>
     											</div>
     										</div>
