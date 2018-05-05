@@ -17,39 +17,35 @@
 		<td>Action</td>
 	</tr>
 <?php
-	if (creationPanier())
-	{
+	if (creationPanier()) {
 		$nb_jeu=count($_SESSION['panier']['id_jeu']);
-		if ($nb_jeu <= 0)
-		echo "<tr><td>Votre panier est vide <br/><br/><a href=\"javascript:history.go(-1)\"><input type=\"button\" value=\"Retour\"></a></td></tr>";
-		else
-		{
-			for ($i=0 ;$i < $nb_jeu ; $i++)
-			{
-				 echo "<tr>";
-				 echo "<td>".htmlspecialchars($_SESSION['panier']['nom_jeu'][$i])."</ td>";
-				 echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qte_jeu'][$i])."\"/></td>";
-				 echo "<td>".htmlspecialchars($_SESSION['panier']['prix_jeu'][$i])."</td>";
-				 echo "<td>".htmlspecialchars($_SESSION['panier']['plateform_jeu'][$i])."</td>";
-				 echo "<td><a href=\"".htmlspecialchars("panier?action=suppression&n=".rawurlencode($_SESSION['panier']['id_jeu'][$i]))."\"><input type=\"button\" value=\"X\"></a></td>";
-				 echo "</tr>";
-			}
-			echo "<tr><td colspan=\"2\"></td>";
-			echo "<td colspan=\"2\">";
-			echo "Total : ".MontantGlobal();
-			echo "</td></tr>";
-			echo "<tr><td colspan=\"4\">";
-			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-      echo "<a href=\"".htmlspecialchars("panier?action=suppression_panier")."\"><input type=\"button\" value=\"Vider le panier\"></a>";
-      echo "<a href=\"javascript:history.go(-1)\"><input type=\"button\" value=\"Retour\"></a>";
-			echo "</td></tr>";
-      echo "<tr><td colspan=\"4\">";
-			echo "<br>";
-	    echo "<a href=\"achat\"><input type=\"button\" value=\"Valider le panier\"></a>";
-		}
-	}
-	?>
+		if ($nb_jeu <= 0){ ?>
+		<tr><td>Votre panier est vide <br/><br/><a href="javascript:history.go(-1)"><input type="button" value="Retour"></a></td></tr>
+		<?php } else{
+			for ($i=0 ; $i < $nb_jeu ; $i++){ ?>
+				 <tr>
+				 <td><?= htmlspecialchars($_SESSION['panier']['nom_jeu'][$i]) ?></td>
+				 <td><input type="text" size="4" name="q[]" value=<?=htmlspecialchars($_SESSION['panier']['qte_jeu'][$i])?>></td>
+				 <td><?= htmlspecialchars($_SESSION['panier']['prix_jeu'][$i])?> €</td>
+				 <td><?= htmlspecialchars($_SESSION['panier']['plateform_jeu'][$i])?></td>
+				 <td><a href=<?=htmlspecialchars("panier?action=suppression&n=".rawurlencode($_SESSION['panier']['id_jeu'][$i]))?>><input type="button" value="X"></a></td>
+				 </tr>
+			 <?php } ?>
+			<tr><td colspan="2"></td>
+			<td colspan="2">
+			Total : <?= MontantGlobal();?> €
+			</td></tr>
+			<tr><td colspan="4">
+			<input type="submit" value="Rafraichir"/>
+			<input type="hidden" name="action" value="refresh"/>
+      <a href=<?=htmlspecialchars("panier?action=suppression_panier")?>><input type="button" value="Vider le panier"></a>
+      <a href="javascript:history.go(-1)"><input type="button" value="Retour"></a>
+			</td></tr>
+      <tr><td colspan="4">
+			<br>
+	    <a href="achat"><input type="button" value="Valider le panier"></a>
+			</td></tr>
+			<?php	} } ?>
 </table>
 </form>
 </body>

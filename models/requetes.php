@@ -308,4 +308,5 @@ function Lastonum(){
 	$req = $bdd->query("SELECT onum FROM orders ORDER BY onum DESC LIMIT 1");
 	return $req->fetch();
 }
+
 ?>
