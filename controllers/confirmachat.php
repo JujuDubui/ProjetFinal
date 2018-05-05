@@ -4,12 +4,20 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $infuser = Infoid($_SESSION['id']);
     $password = md5($_POST['password']);
     if($infuser['passw']==$password){
-      $idjeu = conca_id($_SESSION['panier']['id_jeu']);
+      $req = false;
+      $add = false;
       $idclient = $_SESSION['id'];
       $total = MontantGlobal();
-      $req = addcommande($idclient, $idjeu, $total);
-      supprimePanier();
-      header("Location:boutique");
+      $req = addcommande($idclient, $total);
+      $onum = Lastonum();
+      $add = addjeuvendu($onum['onum'], $_SESSION['panier']);
+      if($req && $add){
+        supprimePanier();
+        header("Location:boutique");
+      }
+      else{
+        echo 'Erreur';
+      }
     }
     else{
       $errorMessage = "Mot de passe incorrect";
