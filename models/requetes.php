@@ -309,4 +309,11 @@ function Lastonum(){
 	return $req->fetch();
 }
 
+function best_game_graphique() {
+    $bdd = db_connect();
+    $req = $bdd->prepare("SELECT id_jeu, SUM(qte_vendue) mycount FROM jeuxvendu GROUP BY id_jeu ORDER BY mycount DESC");
+    $req->execute();
+    return $req;
+  }
+
 ?>

@@ -26,9 +26,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                   $file = $repertoire.basename($_FILES['jacket']['name']);
                     if (move_uploaded_file($_FILES['jacket']['tmp_name'], $file)){
                           try{
-                             $quantité = 99;
-                             $req = addGame($nom, $editeur, $plateforme, $prix, $pegi, $genre, $date, $quantité, $_FILES['jacket']['name']);
-                             header('Location:addjeux');
+                              $quantité = 99;
+                              $req = addGame($nom, $editeur, $plateforme, $prix, $pegi, $genre, $date, $quantité, $_FILES['jacket']['name']);
+                              $contenu = $nom."\r\n";
+                              $h = fopen("completesearch.txt", "a+");
+                              fwrite($h, $contenu);
+                              fclose($h);
+                              header('Location:addjeux');
                            }
                           catch (Exception $e){
                             $errorMessage = "Une erreur c'est produite.";

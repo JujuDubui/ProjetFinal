@@ -49,6 +49,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="panneau">Gestionnaire d'utilisateurs</a>
           <a class="dropdown-item" href="boutique">Boutique</a>
+          <a class="dropdown-item" href="Vente">Vente</a>
           <a class="dropdown-item" href="logOut">Deconnexion</a>
         </div>
       </li>
