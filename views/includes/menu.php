@@ -35,6 +35,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="profil"><img src="../images/img_jeu/co.jpg" alt="Users"> <?= $_SESSION['login'] ?></a>
+            <a class="dropdown-item" href="commandeclient">Commandes</a>
             <a class="dropdown-item" href="logOut">Deconnexion</a>
         </div>
       </li>

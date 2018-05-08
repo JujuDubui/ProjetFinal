@@ -170,6 +170,12 @@ function setAdress($id, $adresse) {
     $req->execute();
 }
 
+function setPassword($id, $newpassword) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('UPDATE clients SET passw="'.$newpassword.'" WHERE id_client='.$id);
+    $req->execute();
+}
+
 function creationPanier(){
 	if(!isset($_SESSION['panier'])){
       $_SESSION['panier'] = array();
@@ -316,4 +322,10 @@ function best_game_graphique() {
     return $req;
   }
 
+function recupventeclient($id){
+	$bdd = db_connect();
+	$req = $bdd->prepare("SELECT o.onum,o.prix,o.odate,jv.qte_vendue,jv.prix_unitaire,j.nom,j.editeur,j.plateform,j.jacket FROM Orders AS o, jeuxvendu AS jv, jeu AS j WHERE o.onum=jv.onum AND jv.id_jeu=j.id_jeu AND o.id_client = ? ORDER BY o.onum");
+	$req->execute(array($id));
+	return $req;
+}
 ?>

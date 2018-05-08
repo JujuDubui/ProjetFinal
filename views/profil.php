@@ -51,7 +51,8 @@ if(!empty($_SESSION['panier'])) $_SESSION['nb_jeu']=countjeu();
                     </tbody>
                   </table>
 									<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifmail">Editer Mail</a></Button>
-						<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifadress">Editer Adresse</a></Button>
+									<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifadress">Editer Adresse</a></Button>
+									<Button value="Edit" class="btn btn-sm btn-outline-secondary"><a href="modifpassword">Editer Password</a></Button>
                 </div>
               </div>
             </div>

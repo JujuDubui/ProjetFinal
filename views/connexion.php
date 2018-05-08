@@ -20,7 +20,7 @@
                     <input class="form-control" type="password" name="mdpconnect" placeholder="Mot de passe"/>
                     </div>
                     <button type="submit" class="btn btn-success">Connexion<i class="glyphicon glyphicon-send"></i></button>
-                    <<a href="accueil"><input class="btn btn-success" type="button" name="retour" value="Retour"></a>
+                    <a href="accueil"><input class="btn btn-success" type="button" name="retour" value="Retour"></a>
         </form>
         <?php
             if(isset($errorMessage)){

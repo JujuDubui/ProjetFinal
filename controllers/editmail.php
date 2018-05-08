@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['id'])){
   if(!empty($_POST)){
-    if(!empty($_POST['email']) && !empty($_POST['email'])){
+    if(!empty($_POST['email']) && !empty($_POST['password'])){
       $email = htmlspecialchars($_POST['email']);
       $password = md5($_POST['password']);
       $infuser = Infoid($_SESSION['id']);

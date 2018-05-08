@@ -26,7 +26,7 @@
 				if (creationPanier()) {
 					$nb_jeu=count($_SESSION['panier']['id_jeu']);
 					if ($nb_jeu <= 0){ ?>
-					<tr><td>Votre panier est vide <br/><br/><a href="javascript:history.go(-1)"><input type="button" value="Retour"></a></td></tr>
+					<tr><td><a href="boutique" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td></tr>
 					<?php } else{
 						for ($i=0 ; $i < $nb_jeu ; $i++){ ?>
 							 <tr>
@@ -42,7 +42,7 @@
 					 <tr>
 						 <td><a href="boutique" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 						 <td colspan="2" class="hidden-xs"></td>
-						 <td class="hidden-xs text-center"><strong>Total :<?= MontantGlobal();?>€</strong></td>
+						 <td class="hidden-xs text-center"><strong>Total: <?= MontantGlobal();?>€</strong></td>
 						 <td><a href="achat" class="btn btn-success btn-block">Checkout <i type="submit" class="fa fa-angle-right"></i></a></td>
 					 </tr>
 				 </tfoot>
@@ -54,7 +54,6 @@
 						<input type="hidden" name="action" value="refresh"/>
 			      <a href=<?=htmlspecialchars("panier?action=suppression_panier")?>><input type="button" value="Vider le panier"></a>
 						</td></tr>
-
 						<?php	} } ?>
 				</table>
 		</form>

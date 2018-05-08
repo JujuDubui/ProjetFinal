@@ -19,7 +19,14 @@ while($donnees=$requser->fetch()){
               <br>
               <label>Prix : <?=$donnees['prix']?> €</label>
               <br>
-              <a href="#"><input type="button" value="Ajouter au panier"></a>
+              <?php if(!isset($_SESSION['id'])){ ?>
+              <a href="connexion"><input type="button" value="Ajouter au panier"></a>
+              <?php } else{ ?>
+                <form action="ajout_panier" method="post">
+                    <input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>
+                    <input value="Ajouter au panier" class="btn btn-sm btn-outline-secondary" type="submit">
+                 </form>
+              <?php } ?>
               <br>
               </div>
   </div>
