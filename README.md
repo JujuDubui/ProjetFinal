@@ -1,4 +1,4 @@
-# Univers of the game
+Univers of the game
 
 Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement WEB de 2ème Informatique de Gestion à l'IPAM La Louvière
 
@@ -24,15 +24,12 @@ Installation:
 -------------------------------------------------------------------------
 projetfinal.local(commentaire)
 DOMAINE de ProjetFinal(commentaire)
-
 NameVirtualHost projetfinal.local
-
 <Directory "D:/wamp64/www/ProjetFinal/">
 AllowOverride All
 Options Indexes MultiViews FollowSymLinks
 Require all granted
 </Directory>
-
 <VirtualHost projetfinal.local>
 DocumentRoot D:/wamp64/www/ProjetFinal/
 ServerName projetfinal.local
