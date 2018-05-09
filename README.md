@@ -14,7 +14,7 @@ Prérequis à avoir:
 
 -----------------------------------
 
-Installation:
+Installation Windows:
 - Cliquer sur Clone or download
 - Sélectionner Download ZIP
 - Extraire le dossier
