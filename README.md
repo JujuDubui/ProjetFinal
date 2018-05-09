@@ -6,7 +6,7 @@ Réalisé par: DUBUISSON Julien
 
 -----------------------------
 
-prérequis à avoir:
+Prérequis à avoir:
 - Un logiciel qui permet d'avoir un serveur localhost (expl: Wampserver64)
 - PHP 5.6.31
 - Apache 2.4.27
