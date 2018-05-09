@@ -52,7 +52,8 @@
     				</div>
     		</div>
     	</div>
-    <?php } ?>
+    <?php } else $errorMessage="Veuillez saisir le nom d'un jeu" ?>
+  <?php if(isset($errorMessage))echo '<div align="center" style="font-size:25px"><font color="red">'.$errorMessage.'</font></div>'; ?>
     <?php include("includes/footer.php") ?>
   </body>
 </html>
