@@ -4,20 +4,20 @@ Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement W
 Réalisé par: DUBUISSON Julien
 ----------------------
 Logiciel à avoir:
--WAMPSERVER 3.1.0 "http://www.wampserver.com/"
--Atom (facultatif) "https://atom.io/"
+WAMPSERVER 3.1.0 "http://www.wampserver.com/"
+Atom (facultatif) "https://atom.io/"
 -------------
 Installation:
--Clone or download
--Download ZIP
--Extraire le dossier
--Renommer le dossier en "projetfinal"
--Lancer WAMP et lancer les serveurs "Apache" et "MySQL"
--Ouvrir le fichier : "C:\Windows\System32\drivers\etc\hosts"
--Rajouter la ligne : "127.0.0.1 projefinal.local" (ne pas mettre les guillemets)
--Enregistrer
--Aller sur cet emplacement : "C:\wamp64\alias"
--Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
+Clone or download
+Download ZIP
+Extraire le dossier
+Renommer le dossier en "projetfinal"
+Lancer WAMP et lancer les serveurs "Apache" et "MySQL"
+Ouvrir le fichier : "C:\Windows\System32\drivers\etc\hosts"
+Rajouter la ligne : "127.0.0.1 projefinal.local" (ne pas mettre les guillemets)
+Enregistrer
+Aller sur cet emplacement : "C:\wamp64\alias"
+Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
 ---------------------------------------------------------------------
   #####
   ## projetfinal.local
