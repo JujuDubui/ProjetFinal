@@ -3,11 +3,11 @@ Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement W
 
 Réalisé par: DUBUISSON Julien
 ----------------------
-#Logiciel à avoir:
+# Logiciel à avoir:
 wampserver 3.1.0 "http://www.wampserver.com/"
 atom (facultatif) "https://atom.io/"
 -------------
-#Installation:
+# Installation:
 Clone or download
 Download ZIP
 Extraire le dossier
@@ -36,7 +36,7 @@ Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
   ServerName projetfinal.local
   </VirtualHost>
 ----------------------------------------------------------------------
-#/!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
+# /!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
 
 Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
 Cliquer sur "Nouvelle base de données", dans le menu sur la gauche
