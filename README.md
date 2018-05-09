@@ -4,8 +4,8 @@ Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement W
 Réalisé par: DUBUISSON Julien
 ----------------------
 Logiciel à avoir:
-WAMPSERVER 3.1.0 "http://www.wampserver.com/"
-Atom (facultatif) "https://atom.io/"
+wampserver 3.1.0 "http://www.wampserver.com/"
+atom (facultatif) "https://atom.io/"
 -------------
 Installation:
 Clone or download
