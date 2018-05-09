@@ -30,7 +30,6 @@ Installation:
 - Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
 
 -------------------------------------------------------------------------
-
  - ##projetfinal.local
  - ##DOMAINE de ProjetFinal
  - NameVirtualHost projetfinal.local
@@ -43,7 +42,6 @@ Installation:
  - DocumentRoot D:/wamp64/www/ProjetFinal/
  - ServerName projetfinal.local
  - </VirtualHost>
-
 -------------------------------------------------------------------------------------------------------
 
 - PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet
