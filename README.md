@@ -31,18 +31,18 @@ Installation:
 
 -------------------------------------------------------------------------
 
- ##projetfinal.local
- ##DOMAINE de ProjetFinal
- NameVirtualHost projetfinal.local
- <Directory "D:/wamp64/www/ProjetFinal/">
- AllowOverride All
- Options Indexes MultiViews FollowSymLinks
- Require all granted
- </Directory>
- <VirtualHost projetfinal.local>
- DocumentRoot D:/wamp64/www/ProjetFinal/
- ServerName projetfinal.local
- </VirtualHost>
+ - ##projetfinal.local
+ - ##DOMAINE de ProjetFinal
+ - NameVirtualHost projetfinal.local
+ - <Directory "D:/wamp64/www/ProjetFinal/">
+ - AllowOverride All
+ - Options Indexes MultiViews FollowSymLinks
+ - Require all granted
+ - </Directory>
+ - <VirtualHost projetfinal.local>
+ - DocumentRoot D:/wamp64/www/ProjetFinal/
+ - ServerName projetfinal.local
+ - </VirtualHost>
 
 -------------------------------------------------------------------------------------------------------
 
