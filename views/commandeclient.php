@@ -10,7 +10,7 @@
     <title>Commande de <?=$_SESSION['login']?></title>
   </head>
   <body>
-    <?php include("includes/menuadmin.php");?>
+    <?php include("includes/menu.php");?>
     <div class="container">
     <br><h2 align="center">Commande de <?=$_SESSION['login']?></h2><br>
     <table class="table table-hover table-dark">
@@ -18,7 +18,6 @@
             if($onum != $result['onum']){
             $onum = $result['onum']; ?>
             <tr>
-              <th scope="row">N°: <?=$result['onum'] ?></th>
               <td scope="row">Date: <?=$result['odate'] ?></td>
               <td scope="row">Total: <?=$result['prix'] ?> €</td>
             </tr>

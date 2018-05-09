@@ -36,10 +36,10 @@ function StatutAdmin($etat,$id) {
     $req->execute();
 }
 
-function addUser($login, $passw, $mail, $adress, $datenaiss){
+function addUser($login, $passw, $mail, $adress, $datenaiss, $statut){
   $bdd = db_connect();
-  $req = $bdd->prepare("INSERT INTO clients(login, passw, mail, adress, datenaiss) VALUES(?, ?, ?, ?, ?)");
-  $req->execute(array($login, $passw, $mail, $adress, $datenaiss));
+  $req = $bdd->prepare("INSERT INTO clients(login, passw, mail, adress, datenaiss, Stat) VALUES(?, ?, ?, ?, ?, ?)");
+  $req->execute(array($login, $passw, $mail, $adress, $datenaiss, $statut));
   return $req;
 }
 

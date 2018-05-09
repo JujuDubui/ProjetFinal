@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="panier">
+		<form method="post">
 			<table id="cart" class="table table-hover table-condensed">
 			<thead>
 				<tr>
@@ -40,7 +40,8 @@
 						 <td><a href="panier" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 						 <td colspan="2" class="hidden-xs"></td>
 						 <td class="hidden-xs text-center"><strong>Total: <?= MontantGlobal();?>€</strong></td>
-						 <td><a href="confirmachat" class="btn btn-success btn-block">Buy <i type="submit" class="fa fa-angle-right"></i></a></td>
+						 <td class="hidden-xs text-center"><input type="password" name="password"></strong></td>
+						 <td><input type="submit" class="btn btn-success btn-block" value="Buy"></td>
 					 </tr>
 				 </tfoot>
 						<?php	} } ?>

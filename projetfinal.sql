@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 09 mai 2018 à 14:17
+-- Généré le :  mer. 09 mai 2018 à 21:56
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -30,15 +30,15 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
-  `id_admin` int(2) NOT NULL AUTO_INCREMENT,
-  `login` varchar(50) NOT NULL,
-  `passw` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `Statut` int(11) NOT NULL,
+  `id_admin` INT(2) NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(50) NOT NULL,
+  `passw` VARCHAR(255) NOT NULL,
+  `mail` VARCHAR(255) NOT NULL,
+  `Statut` INT(11) NOT NULL,
   PRIMARY KEY (`id_admin`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `admin`
@@ -55,13 +55,13 @@ INSERT INTO `admin` (`id_admin`, `login`, `passw`, `mail`, `Statut`) VALUES
 
 DROP TABLE IF EXISTS `chat`;
 CREATE TABLE IF NOT EXISTS `chat` (
-  `nummsg` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(10) NOT NULL,
-  `msg` varchar(255) NOT NULL,
-  `idclient` int(11) DEFAULT NULL,
-  `datemsg` datetime NOT NULL,
+  `nummsg` INT(11) NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(10) NOT NULL,
+  `msg` VARCHAR(255) NOT NULL,
+  `idclient` INT(11) DEFAULT NULL,
+  `datemsg` DATETIME NOT NULL,
   PRIMARY KEY (`nummsg`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -71,24 +71,25 @@ CREATE TABLE IF NOT EXISTS `chat` (
 
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
-  `id_client` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(50) NOT NULL,
-  `passw` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `adress` varchar(255) NOT NULL,
-  `datenaiss` datetime NOT NULL,
-  `Statut` int(11) NOT NULL,
+  `id_client` INT(11) NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(50) NOT NULL,
+  `passw` VARCHAR(255) NOT NULL,
+  `mail` VARCHAR(255) NOT NULL,
+  `adress` VARCHAR(255) NOT NULL,
+  `datenaiss` DATETIME NOT NULL,
+  `Statut` INT(11) NOT NULL,
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
 INSERT INTO `clients` (`id_client`, `login`, `passw`, `mail`, `adress`, `datenaiss`, `Statut`) VALUES
-(1, 'morcos71', '25f9e794323b453885f5181f1b624d0b', 'julien_dubuisson@hotmail.be', 'Rue des meuniers 188', '1995-01-16 00:00:00', 1);
+(1, 'morcos71', '25f9e794323b453885f5181f1b624d0b', 'julien_dubuisson@hotmail.be', 'Rue des meuniers 188', '1995-01-16 00:00:00', 0),
+(2, 'Fra', '81dc9bdb52d04dc20036dbd8313ed055', 'Fracosta@hotmail.com', 'Rue du medoc 17', '1995-09-05 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -98,18 +99,18 @@ INSERT INTO `clients` (`id_client`, `login`, `passw`, `mail`, `adress`, `datenai
 
 DROP TABLE IF EXISTS `jeu`;
 CREATE TABLE IF NOT EXISTS `jeu` (
-  `id_jeu` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `editeur` varchar(100) NOT NULL,
-  `plateform` varchar(50) NOT NULL,
-  `prix` decimal(10,2) NOT NULL,
-  `pegi` int(2) NOT NULL,
-  `genre` varchar(255) DEFAULT NULL,
-  `date_parution` date NOT NULL,
-  `quantité` int(11) NOT NULL,
-  `jacket` varchar(255) NOT NULL,
+  `id_jeu` INT(11) NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(50) NOT NULL,
+  `editeur` VARCHAR(100) NOT NULL,
+  `plateform` VARCHAR(50) NOT NULL,
+  `prix` DECIMAL(10,2) NOT NULL,
+  `pegi` INT(2) NOT NULL,
+  `genre` VARCHAR(255) DEFAULT NULL,
+  `date_parution` DATE NOT NULL,
+  `quantité` INT(11) NOT NULL,
+  `jacket` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_jeu`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `jeu`
@@ -134,13 +135,13 @@ INSERT INTO `jeu` (`id_jeu`, `nom`, `editeur`, `plateform`, `prix`, `pegi`, `gen
 
 DROP TABLE IF EXISTS `jeuxvendu`;
 CREATE TABLE IF NOT EXISTS `jeuxvendu` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `onum` int(11) NOT NULL,
-  `id_jeu` int(11) NOT NULL,
-  `qte_vendue` int(11) NOT NULL,
-  `prix_unitaire` float DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `onum` INT(11) NOT NULL,
+  `id_jeu` INT(11) NOT NULL,
+  `qte_vendue` INT(11) NOT NULL,
+  `prix_unitaire` FLOAT DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `jeuxvendu`
@@ -154,7 +155,11 @@ INSERT INTO `jeuxvendu` (`id`, `onum`, `id_jeu`, `qte_vendue`, `prix_unitaire`) 
 (5, 1, 5, 1, 29.99),
 (6, 2, 1, 2, 45.99),
 (7, 3, 8, 1, 55.99),
-(8, 3, 6, 1, 35.99);
+(8, 3, 6, 1, 35.99),
+(9, 4, 1, 1, 45.99),
+(10, 4, 4, 1, 29.99),
+(11, 4, 3, 1, 19.99),
+(12, 4, 6, 1, 35.99);
 
 -- --------------------------------------------------------
 
@@ -164,12 +169,12 @@ INSERT INTO `jeuxvendu` (`id`, `onum`, `id_jeu`, `qte_vendue`, `prix_unitaire`) 
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
-  `onum` int(11) NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) NOT NULL,
-  `prix` decimal(10,2) NOT NULL,
-  `odate` date NOT NULL,
+  `onum` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_client` INT(11) NOT NULL,
+  `prix` DECIMAL(10,2) NOT NULL,
+  `odate` DATE NOT NULL,
   PRIMARY KEY (`onum`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `orders`
@@ -178,7 +183,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 INSERT INTO `orders` (`onum`, `id_client`, `prix`, `odate`) VALUES
 (1, 1, '579.85', '2018-05-06'),
 (2, 1, '91.98', '2018-05-06'),
-(3, 1, '91.98', '2018-05-08');
+(3, 1, '91.98', '2018-05-08'),
+(4, 2, '131.96', '2018-05-09');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

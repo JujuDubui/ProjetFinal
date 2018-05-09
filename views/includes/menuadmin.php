@@ -8,12 +8,12 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <form method="POST" class="form-inline mt-2 mt-md-0" action="commandeallclient">
-      <input style="position:relative;right:40px;" class="form-control mr-sm-2" type="text" name="login" placeholder="nom d'un client">
-      <input style="position:relative;right:40px;" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search order">
+      <input style="position:relative;right:30px;" class="form-control mr-sm-2" type="text" name="login" placeholder="nom d'un client">
+      <input style="position:relative;right:30px;" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search order">
     </form>
   <form method="POST" action="Search" class="form-inline mt-2 mt-md-0">
-            <input style="position:relative;right:25px;" class="form-control mr-sm-2" type="text" name="search" placeholder="nom d'un jeu" aria-label="Search">
-            <input style="position:relative;right:25px;" class="btn btn-outline-success my-2 my-sm-0" value="search game" type="submit">
+      <input style="position:relative;right:15px;" class="form-control mr-sm-2" type="text" name="search" placeholder="nom d'un jeu" aria-label="Search">
+      <input style="position:relative;right:15px;" class="btn btn-outline-success my-2 my-sm-0" value="search game" type="submit">
   </form>
     <form class="form-inline my-2 my-lg-0">
     	<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="logOut">Deconnexion</a></button>

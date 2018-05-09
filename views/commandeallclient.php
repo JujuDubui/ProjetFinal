@@ -20,7 +20,6 @@
             if($onum != $result['onum']){
             $onum = $result['onum']; ?>
             <tr>
-              <th scope="row">N°: <?=$result['onum'] ?></th>
               <td scope="row">Date: <?=$result['odate'] ?></td>
               <td scope="row">Total: <?=$result['prix'] ?> €</td>
             </tr>
@@ -34,7 +33,7 @@
                   <td scope="row"><?=$result['prix_unitaire'] ?> € / U</td>
                 </tr>
               </tbody>
-      <?php  } } ?>
+      <?php  } } else $errorMessage="Veuillez saisir le nom d'un client";?>
       </table>
       <?php
           if(isset($errorMessage))echo '<div align="center" style="font-size:25px"><font color="red">'.$errorMessage.'</font></div>';

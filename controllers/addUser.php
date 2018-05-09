@@ -26,7 +26,8 @@ if(!empty($_POST))
                       $mailexist = mailExist($mail);
                       if($mailexist==0){
                           try{
-                              $req = addUser($login, $passw, $mail, $adress, $datenaiss);
+                              $statut=0;
+                              $req = addUser($login, $passw, $mail, $adress, $datenaiss, $statut);
                               $errorMessage = "Votre compte a bien été créé ! vous pouvez vous connecter <a href='connexion'>ici</a>";
                           }
                           catch (Exception $e){
