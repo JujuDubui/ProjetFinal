@@ -7,7 +7,7 @@ while($donnees=$requser->fetch()){
               <h2>Fiche de <?=$donnees['nom']?></h2>
               <br>
               <?php $repertoire = 'images/img_jeu/'; ?>
-              <img alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
+              <img style="height:250px;width:400px;" alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
               <br>
               <label>Nom du jeu : <?=$donnees['nom']?></label>
               <br>

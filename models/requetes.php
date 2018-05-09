@@ -70,6 +70,12 @@ function allUserInfo(){
 	return $req;
 }
 
+function allUserInfofetch(){
+	$bdd = db_connect();
+	$req = $bdd->query("SELECT * FROM clients");
+	return $req;
+}
+
 function allAdminInfo(){
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM admin");
@@ -328,4 +334,13 @@ function recupventeclient($id){
 	$req->execute(array($id));
 	return $req;
 }
+
+function getCommandeAdmin($id) {
+    $bdd = db_connect();
+    $req = $bdd->prepare('SELECT o.onum,o.prix,o.odate,jv.qte_vendue,jv.prix_unitaire,j.nom,j.editeur,j.plateform,j.jacket,c.login FROM orders AS o, jeuxvendu AS jv, jeu AS j, clients AS c
+			WHERE o.onum=jv.onum AND jv.id_jeu=j.id_jeu AND c.id_client=?
+      AND o.id_client=? ORDER BY o.odate');
+    $req->execute(array($id,$id));
+    return $req;
+  }
 ?>

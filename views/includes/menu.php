@@ -35,6 +35,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="profil"><img src="../images/img_jeu/co.jpg" alt="Users"> <?= $_SESSION['login'] ?></a>
+            <a class="dropdown-item" href="panier">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nb_jeu']?>)</a>
+            <?php } else{?>(0)<?php } ?></a>
             <a class="dropdown-item" href="commandeclient">Commandes</a>
             <a class="dropdown-item" href="logOut">Deconnexion</a>
         </div>
@@ -50,7 +52,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="panneau">Gestionnaire d'utilisateurs</a>
           <a class="dropdown-item" href="boutique">Boutique</a>
-          <a class="dropdown-item" href="Vente">Vente</a>
+          <a class="dropdown-item" href="Vente">graphique vente</a>
           <a class="dropdown-item" href="logOut">Deconnexion</a>
         </div>
       </li>
@@ -65,13 +67,6 @@
           </div>
         </li>
       <?php }} ?>
-      <?php if(isset($_SESSION['login'])){ ?>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button">
-          <img src="../images/img_jeu/panierblanc30x20.png" alt="panier">
-          <a href="panier">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nb_jeu']?>)</a>
-        <?php } else{?>(0)<?php } ?>
-        </button>
-      <?php } ?>
       <?php if(!isset($_SESSION['login_admin'])){?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,9 +82,15 @@
       </li>
     <?php } else{} ?>
     </ul>
+    <?php if(isset($_SESSION['login_admin'])){ ?>
+      <form method="POST" class="form-inline mt-2 mt-md-0" action="commandeallclient">
+        <input style="position:relative;right:25px;" class="form-control mr-sm-2" type="text" name="login" placeholder="nom d'un client">
+        <input style="position:relative;right:25px;" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search order">
+      </form>
+    <?php } ?>
     <form method="POST" action="Search" class="form-inline mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" type="text" name="search" placeholder="Recherche" aria-label="Search">
-              <input class="btn btn-outline-success my-2 my-sm-0" value="Rechercher" type="submit">
+              <input class="form-control mr-sm-2" type="text" name="search" placeholder="nom d'un jeu" aria-label="Search">
+              <input class="btn btn-outline-success my-2 my-sm-0" value="search game" type="submit">
     </form>
   </div>
 </nav>

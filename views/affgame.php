@@ -16,6 +16,7 @@
 												<div class="btn-group">
 													<button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['plateform']?>
 													<button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['prix']?> €</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['pegi']?></button>
 														<?php if(!empty($_SESSION['login_admin'])){?>
 																	<form action="editGame" method="get">
 																		<input type="hidden" name="id" value=<?=$donnees['id_jeu']?>>

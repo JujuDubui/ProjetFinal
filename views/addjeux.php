@@ -35,8 +35,8 @@
                     <input class="form-control" type="date" name="date" />
                     </div>
                     <input type="file" id="jacket" name="jacket" accept="image/*"/><br/><br/>
-                    <input type="submit" name="formconnexion" value="Ajouter" />
-                    <a href="boutique"><input type="button" name ="retour" value="Retour"></a>
+                    <input class="btn btn-success" type="submit" name="formconnexion" value="Ajouter" />
+                    <a href="boutique"><input class="btn btn-success" type="button" name ="retour" value="Retour"></a>
             <?php
                 if(isset($errorMessage)){
                     echo '<font color="red">'.$errorMessage.'</font>';

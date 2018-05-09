@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="../../images/img_jeu/Nintendo_Switch_Portable.png" alt="4">
+            <img class="third-slide" src="../../images/img_jeu/switch.jpg" alt="4">
             <div class="container">
               <div class="carousel-caption text-right">
                 <form action="actujeux" method="post">

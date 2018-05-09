@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
               $errorMessage="le prix ne peux pas être négatif ";
             }
             else{
-              if($pegi==3 OR $pegi==12 OR $pegi==16 OR $pegi==18){
+              if($pegi==3 OR $pegi==7 OR $pegi==12 OR $pegi==16 OR $pegi==18){
                 if(!empty($_FILES['jacket']['name'])){
                   $repertoire = 'images/img_jeu/';
                   $file = $repertoire.basename($_FILES['jacket']['name']);
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 }
               }
               else{
-                $errorMessage="pegi incorrect";
+                $errorMessage="pegi invalide";
               }
             }
 

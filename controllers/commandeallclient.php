@@ -2,6 +2,6 @@
 session_start();
 require_once('models/bdd.php');
 require_once('models/requetes.php');
-include('views/commandeclient.php');
-include('affcommande.php');
+include('affallcommande.php');
+include('views/commandeallclient.php');
 ?>
