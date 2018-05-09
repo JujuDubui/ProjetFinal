@@ -37,8 +37,9 @@ Require all granted
 DocumentRoot D:/wamp64/www/ProjetFinal/
 ServerName projetfinal.local
 </VirtualHost>
-  --------------
-/!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
+-------------------------------------------------------------------------------------------------------
+
+- PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet
 
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
 - Cliquer sur "Nouvelle base de données", dans le menu sur la gauche
