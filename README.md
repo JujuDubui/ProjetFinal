@@ -7,7 +7,7 @@ Réalisé par: DUBUISSON Julien
 Logiciel à avoir:
 - wampserver 3.1.0
 - un editeur de texte (expl : Atom)
-=============================
+===================================
 Installation:
 - cliquer sur Clone or download
 - sélectionner Download ZIP
@@ -21,7 +21,7 @@ Installation:
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Aller sur cet emplacement : "C:\wamp64\alias"
 - Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
-=================================
+=========================================================================
   #####
   ## projetfinal.local
   ## DOMAINE de ProjetFinal
@@ -38,7 +38,7 @@ Installation:
   DocumentRoot D:/wamp64/www/ProjetFinal/
   ServerName projetfinal.local
   </VirtualHost>
-=============================
+================
 /!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
 
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
