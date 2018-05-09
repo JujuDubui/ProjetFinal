@@ -22,8 +22,8 @@ Installation:
 - Aller sur cet emplacement : "C:\wamp64\alias"
 - Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
 -------------------------------------------------------------------------
- ## projetfinal.local
- ## DOMAINE de ProjetFinal
+projetfinal.local(commentaire)
+DOMAINE de ProjetFinal(commentaire)
 
 NameVirtualHost projetfinal.local
 
