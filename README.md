@@ -15,6 +15,7 @@ Installation:
 - Renommer le dossier en "projetfinal"
 - Lancer WAMP64 et lancer les serveurs "Apache" et "MySQL"
 - Aller sur cet emplacement "C:\Windows\System32\drivers\etc\hosts"
+- Ouvrez le fichier hosts à l'aide de votre éditeur de texte
 - Déplacer le fichier hosts hors du disque C (Sinon probleme d'autorisation)
 - Rajouter la ligne : "127.0.0.1 projefinal.local" (ne pas mettre les guillemets)
 - Enregistrer (Ctrl + S)
