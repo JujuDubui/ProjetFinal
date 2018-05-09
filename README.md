@@ -18,7 +18,7 @@ Installation Windows:
 - Cliquer sur Clone or download
 - Sélectionner Download ZIP
 - Extraire le dossier
-- Renommer le dossier en "projetfinal"
+- Renommer le dossier en "Projetfinal"
 - Lancer votre logiciel serveur localhost (expl: Wampserver64)
 - Aller sur cet emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Déplacer le fichier hosts hors du disque C (Sinon probleme d'autorisation)
