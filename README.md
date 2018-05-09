@@ -2,7 +2,7 @@
 Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement WEB de 2ème Informatique de Gestion à l'IPAM La Louvière
 
 Réalisé par: DUBUISSON Julien
-----------------------
+--------------
 # Logiciel à avoir:
 wampserver 3.1.0 "http://www.wampserver.com/"
 atom (facultatif) "https://atom.io/"
@@ -18,7 +18,7 @@ Rajouter la ligne : "127.0.0.1 projefinal.local" (ne pas mettre les guillemets)
 Enregistrer
 Aller sur cet emplacement : "C:\wamp64\alias"
 Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
----------------------------------------------------------------------
+------------
   #####
   ## projetfinal.local
   ## DOMAINE de ProjetFinal
@@ -35,7 +35,7 @@ Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
   DocumentRoot D:/wamp64/www/ProjetFinal/
   ServerName projetfinal.local
   </VirtualHost>
-----------------------------------------------------------------------
+------------------
 # /!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
 
 Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
