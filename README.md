@@ -27,7 +27,7 @@ Installation Windows:
 - Enregistrer (Ctrl + S)
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Aller sur cet emplacement : "C:\wamp64\alias\"
-- Copier le fichier : "projetfinal.conf" présent dans la racine du dossier projet final
+- Copier le fichier : "projetfinal.conf" présent dans la racine du dossier Projetfinal
 - Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\"
 - PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet
 
@@ -38,7 +38,7 @@ Installation Windows:
 - Cliquer maintenant sur "projetFinal" qui vient d'apparaître dans le menu de gauche
 - Cliquer sur l'onglet "Importer"
 - Sur la nouvelle page, cliquer sur "Choisir un fichier"
-- Prendre le dump "projetfinal.sql" présent à la racine du dossier projetfinal
+- Prendre le dump "projetfinal.sql" présent à la racine du dossier Projetfinal
 - Ensuite, cliquer sur "Exécuter"
 - Taper l'url suivante : "http://projetfinal.local"
 
