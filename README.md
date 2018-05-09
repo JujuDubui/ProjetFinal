@@ -3,11 +3,11 @@
 Site de vente de jeu vidéo dans le cadre du cours de Projet de Développement WEB de 2ème Informatique de Gestion à l'IPAM La Louvière
 
 Réalisé par: DUBUISSON Julien
-=============================
+-----------------------------
 Logiciel à avoir:
 - wampserver 3.1.0
 - un editeur de texte (expl : Atom)
-===================================
+-----------------------------------
 Installation:
 - cliquer sur Clone or download
 - sélectionner Download ZIP
@@ -21,24 +21,23 @@ Installation:
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Aller sur cet emplacement : "C:\wamp64\alias"
 - Créer un fichier : "projetfinal.conf" et y copier les lignes suivantes:
-=========================================================================
-  #####
-  ## projetfinal.local
-  ## DOMAINE de ProjetFinal
-  #####
-  NameVirtualHost projetfinal.local
+-------------------------------------------------------------------------
+ ## projetfinal.local
+ ## DOMAINE de ProjetFinal
 
-  <Directory "D:/wamp64/www/ProjetFinal/">
-  AllowOverride All
-  Options Indexes MultiViews FollowSymLinks
-  Require all granted
-  </Directory>
+NameVirtualHost projetfinal.local
 
-  <VirtualHost projetfinal.local>
-  DocumentRoot D:/wamp64/www/ProjetFinal/
-  ServerName projetfinal.local
-  </VirtualHost>
-================
+<Directory "D:/wamp64/www/ProjetFinal/">
+AllowOverride All
+Options Indexes MultiViews FollowSymLinks
+Require all granted
+</Directory>
+
+<VirtualHost projetfinal.local>
+DocumentRoot D:/wamp64/www/ProjetFinal/
+ServerName projetfinal.local
+</VirtualHost>
+  --------------
 /!\ PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet /!\
 
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
