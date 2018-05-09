@@ -10,13 +10,13 @@ prérequis à avoir:
 - Un logiciel qui permet d'avoir un serveur localhost (expl: Wampserver64)
 - PHP 5.6.31
 - Apache 2.4.27
-- un editeur de texte (expl : Atom)
+- Un editeur de texte (expl : Atom)
 
 -----------------------------------
 
 Installation:
-- cliquer sur Clone or download
-- sélectionner Download ZIP
+- Cliquer sur Clone or download
+- Sélectionner Download ZIP
 - Extraire le dossier
 - Renommer le dossier en "projetfinal"
 - Lancer votre logiciel serveur localhost (expl: Wampserver64)
@@ -27,8 +27,8 @@ Installation:
 - Enregistrer (Ctrl + S)
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Aller sur cet emplacement : "C:\wamp64\alias\"
-- copier le fichier : "projetfinal.conf" présent dans la racine du dossier projet final
-- coller le fichier à l'emplacement suivant : "C:\wamp64\alias\"
+- Copier le fichier : "projetfinal.conf" présent dans la racine du dossier projet final
+- Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\"
 - PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet
 
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
