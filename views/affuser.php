@@ -29,7 +29,7 @@
       </div>
     </div>
 <?php
-		}
+} $requser->closeCursor();
 	}
 	else{
 		header("location: connexion");

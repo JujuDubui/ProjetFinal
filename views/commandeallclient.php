@@ -33,7 +33,7 @@
                   <td scope="row"><?=$result['prix_unitaire'] ?> € / U</td>
                 </tr>
               </tbody>
-      <?php  } } else $errorMessage="Veuillez saisir le nom d'un client";?>
+      <?php  } $req2->closeCursor(); } else $errorMessage="Veuillez saisir le nom d'un client"; ?>
       </table>
       <?php
           if(isset($errorMessage))echo '<div align="center" style="font-size:25px"><font color="red">'.$errorMessage.'</font></div>';

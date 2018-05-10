@@ -4,9 +4,6 @@
     if(!empty($_SESSION['login'])) {
       $profil = getUser($_SESSION['login']);
     }
-    else if(!empty($_SESSION['login_admin'])) {
-      $profil = allUserInfo()->fetch();
-    }
     else {
       header('Location: accueil');
     }

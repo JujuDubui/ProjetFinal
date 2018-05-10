@@ -25,7 +25,7 @@
 										</div>
 									</div>
 								</div>
-						<?php }?>
+						<?php } $requser->closeCursor();?>
 				</div>
 		</div>
 	</div>

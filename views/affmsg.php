@@ -6,6 +6,7 @@
 	  $requser = allChatMsg($idclient);
 		$req = allAdminInfo();
 		$info = $req->fetch();
+		$req->closeCursor();
      while($donnees=$requser->fetch()){
        ?>
   	 	<div class="container">
@@ -16,7 +17,7 @@
     		</div>
   		</div>
 			<?php
-				}
+		} $requser->closeCursor();
 			}
 		else if(isset($_SESSION['login_admin'])){
 			if(isset($_POST['login'])){
@@ -39,7 +40,7 @@
 				 </div>
 			 </div>
 			 <?php
-				}
+		 } $requser->closeCursor();
 			}
 			else{
 					header("location: connexion");

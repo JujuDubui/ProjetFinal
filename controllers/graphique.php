@@ -7,6 +7,6 @@ if(isset($_SESSION['id_admin'])){
     $info = "";
     $info = $req2['nom']."|".$result['mycount'];
     array_push($resultat, $info);
-  }
+  } $req->closeCursor();
 }
 ?>

@@ -30,4 +30,4 @@ while($donnees=$requser->fetch()){
               <br>
               </div>
   </div>
-<?php } ?>
+<?php } $requser->closeCursor(); ?>

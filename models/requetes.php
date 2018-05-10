@@ -2,13 +2,17 @@
 function getUser($login) {
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM clients WHERE login IN(\"$login\")");
-	return $info=$req->fetch();
+  $info =$req->fetch();
+	$req->closeCursor();
+	return $info;
 }
 
 function getAdmin($login) {
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT * FROM admin WHERE login IN(\"$login\")");
-	return $info=$req->fetch();
+	$info=$req->fetch();
+	$req->closeCursor();
+	return $info;
 }
 
 function searchjeu($search) {
@@ -18,27 +22,26 @@ function searchjeu($search) {
   return $req;
 }
 
-function setData($id, $login, $mdp) {
-    $bdd = db_connect();
-    $req = $bdd->prepare('UPDATE clients SET login="'.$login.'", passw="'.$mdp.'" WHERE id_client='.$id);
-    $req->execute();
-}
 
 function Statut($etat,$id) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE clients SET Statut="'.$etat.'" WHERE id_client='.$id);
     $req->execute();
+		$req->closeCursor();
+		return $req;
 }
 
 function StatutAdmin($etat,$id) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE admin SET Statut="'.$etat.'" WHERE id_admin='.$id);
     $req->execute();
+		$req->closeCursor();
+		return $req;
 }
 
 function addUser($login, $passw, $mail, $adress, $datenaiss, $statut){
   $bdd = db_connect();
-  $req = $bdd->prepare("INSERT INTO clients(login, passw, mail, adress, datenaiss, Stat) VALUES(?, ?, ?, ?, ?, ?)");
+  $req = $bdd->prepare("INSERT INTO clients(login, passw, mail, adress, datenaiss, Statut) VALUES(?, ?, ?, ?, ?, ?)");
   $req->execute(array($login, $passw, $mail, $adress, $datenaiss, $statut));
   return $req;
 }
@@ -47,6 +50,7 @@ function addMsg($login, $msg, $idclient){
   $bdd = db_connect();
   $req = $bdd->prepare("INSERT INTO chat(login, msg, idclient, datemsg) VALUES(?, ?, ?, NOW())");
   $req->execute(array($login, $msg, $idclient));
+	$req->closeCursor();
   return $req;
 }
 
@@ -54,6 +58,7 @@ function addAdminMsg($logadmin, $msg, $idclient){
   $bdd = db_connect();
   $req = $bdd->prepare("INSERT INTO chat(login, msg, idclient, datemsg) VALUES(?, ?, ?, NOW())");
   $req->execute(array($logadmin, $msg, $idclient));
+	$req->closeCursor();
   return $req;
 }
 
@@ -61,6 +66,7 @@ function addGame($nom , $editeur, $plateforme, $prix, $pegi, $genre, $date, $qua
   $bdd = db_connect();
   $req = $bdd->prepare("INSERT INTO jeu(nom, editeur, plateform, prix, pegi, genre, date_parution, quantité, jacket) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
   $req->execute(array($nom, $editeur, $plateforme, $prix, $pegi, $genre, $date, $quantité, $jacket));
+	$req->closeCursor();
   return $req;
 }
 
@@ -70,11 +76,6 @@ function allUserInfo(){
 	return $req;
 }
 
-function allUserInfofetch(){
-	$bdd = db_connect();
-	$req = $bdd->query("SELECT * FROM clients");
-	return $req;
-}
 
 function allAdminInfo(){
 	$bdd = db_connect();
@@ -96,48 +97,55 @@ function allChatMsg($idclient) {
 
 function logExist($login) {
   $bdd = db_connect();
-  $reponse = $bdd->prepare("SELECT * FROM clients WHERE login = ?");
-  $reponse->execute(array($login));
-  return $reponse->rowCount();
+  $req = $bdd->prepare("SELECT * FROM clients WHERE login = ?");
+  $req->execute(array($login));
+	$info = $req->rowCount();
+	return $info;
 }
 
 function mailExist($mail) {
   $bdd = db_connect();
-  $reponse = $bdd->prepare("SELECT * FROM clients WHERE mail = ?");
-  $reponse->execute(array($mail));
-  return $reponse->rowCount();
+  $req = $bdd->prepare("SELECT * FROM clients WHERE mail = ?");
+  $req->execute(array($mail));
+	$info = $req->rowCount();
+	return $info;
 }
 
 function gameExist($nom, $plateforme) {
   $bdd = db_connect();
-  $reponse = $bdd->prepare("SELECT * FROM clients WHERE nom = ? AND plateform = ?");
-  $reponse->execute(array($nom, $plateforme));
-  return $reponse->rowCount();
+  $req = $bdd->prepare("SELECT * FROM clients WHERE nom = ? AND plateform = ?");
+  $req->execute(array($nom, $plateforme));
+	$info = $req->rowCount();
+	return $info;
 }
 
 function Infoid($id){
   $bdd = db_connect();
-  $requser = $bdd->query("SELECT * FROM clients WHERE id_client=".$id);
-  return $info=$requser->fetch();
+  $req = $bdd->query("SELECT * FROM clients WHERE id_client=".$id);
+  $info=$req->fetch();
+	return $info;
 }
 
 function InfoGameid($id){
   $bdd = db_connect();
-  $requser = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
-  return $info=$requser->fetch();
+  $req = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
+	$info=$req->fetch();
+  return $info;
 }
 
 function statutid($id){
   $bdd = db_connect();
-  $requser = $bdd->query("SELECT * FROM admin WHERE id_admin = ?");
-	$reponse->execute(array($id));
-  return $info=$requser->fetch();
+  $req = $bdd->query("SELECT * FROM admin WHERE id_admin = ?");
+	$req->execute(array($id));
+	$info=$req->fetch();
+	$req->closeCursor();
+	return $info;
 }
 
 function InfoGameidnotfectch($id){
   $bdd = db_connect();
-  $requser = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
-  return $requser;
+  $req = $bdd->query("SELECT * FROM jeu WHERE id_jeu=".$id);
+  return $req;
 }
 
 function InfoGameplat($plateform){
@@ -149,12 +157,14 @@ function InfoGameplat($plateform){
 function delUser($id){
   $bdd = db_connect();
   $req = $bdd->query('DELETE FROM clients WHERE id_client = '.$id);
+	$req->closeCursor();
   return $req;
 }
 
 function delGame($id){
   $bdd = db_connect();
   $req = $bdd->query('DELETE FROM jeu WHERE id_jeu = '.$id);
+	$req->closeCursor();
   return $req;
 }
 
@@ -162,24 +172,29 @@ function setGameData($id, $prix, $date) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE jeu SET prix="'.$prix.'", date_parution="'.$date.'" WHERE id_jeu='.$id);
     $req->execute();
+		$req->closeCursor();
+		return $req;
 }
 
 function setEmail($id, $email) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE clients SET mail="'.$email.'" WHERE id_client='.$id);
     $req->execute();
+		return $req;
 }
 
 function setAdress($id, $adresse) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE clients SET adress="'.$adresse.'" WHERE id_client='.$id);
     $req->execute();
+		return $req;
 }
 
 function setPassword($id, $newpassword) {
     $bdd = db_connect();
     $req = $bdd->prepare('UPDATE clients SET passw="'.$newpassword.'" WHERE id_client='.$id);
     $req->execute();
+		return $req;
 }
 
 function creationPanier(){
@@ -318,7 +333,8 @@ function addcommande($idclient, $total){
 function Lastonum(){
 	$bdd = db_connect();
 	$req = $bdd->query("SELECT onum FROM orders ORDER BY onum DESC LIMIT 1");
-	return $req->fetch();
+	$info=$req->fetch();
+	return $info;
 }
 
 function best_game_graphique() {

@@ -31,7 +31,7 @@
                   <td scope="row"><?=$result['prix_unitaire'] ?> € / U</td>
                 </tr>
               </tbody>
-      <?php  } ?>
+      <?php  } $req->closeCursor();?>
     </table>
     </div>
   </body>
