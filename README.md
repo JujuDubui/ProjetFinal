@@ -29,7 +29,7 @@ Installation Windows:
 - Enregistrer (Ctrl + S)
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Copier le fichier : "projetfinal.conf" présent dans la racine du dossier Projetfinal
-- Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\"
+- Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\" (si Wamp n'est pas votre serveur local, aller dans le dossier adéquat)
 - PRENDRE SOIN DE REMPLACER "D:\EXEMPLE CHEMIN VERS\projetfinal" par le chemin menant vers le dossier du projet
 
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
